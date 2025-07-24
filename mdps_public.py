@@ -7,7 +7,6 @@ Created on Sun May  8 21:01:15 2022
 
 import pickle
 import streamlit as st
-from streamlit_option_menu import option_menu
 
 # Load saved models
 diabetes_model = pickle.load(open('diabetes_model.sav', 'rb'))
@@ -15,13 +14,11 @@ heart_disease_model = pickle.load(open('heart_disease_model.sav', 'rb'))
 parkinsons_model = pickle.load(open('parkinsons_model.sav', 'rb'))
 
 # Sidebar for navigation
-with st.sidebar:
-    selected = option_menu(
-        'Multiple Disease Prediction System',
-        ['Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction'],
-        icons=['activity', 'heart', 'person'],
-        default_index=0
-    )
+st.sidebar.title('Multiple Disease Prediction System')
+selected = st.sidebar.selectbox(
+    'Select a Disease Prediction',
+    ['Diabetes Prediction', 'Heart Disease Prediction', 'Parkinsons Prediction']
+)
 
 # Diabetes Prediction Page
 if selected == 'Diabetes Prediction':
