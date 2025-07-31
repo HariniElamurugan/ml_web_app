@@ -7,7 +7,7 @@ Created on Sun May  8 21:01:15 2022
 
 import pickle
 import streamlit as st
-from streamlit-option-menu import option-menu
+from streamlit_option_menu import option_menu
 
 
 # loading the saved models
